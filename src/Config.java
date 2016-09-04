@@ -1,10 +1,6 @@
-import java.util.ArrayList;
 import java.util.function.Function;
 
-public class Config<T> implements DatabaseConfiguration {
-	private Function<DatabaseSeperation, Object> byProterty = null;
-	private ArrayList<Function<DatabaseAction, Object>> andActions = new ArrayList<>();
-	private StoredProcedure procedure;
+public class Config<T> extends DatabaseConfiguration {
 
 	public Config<T> configure(StoredProcedure storedProcedure) {
 		System.out.println("Config - Stored: " + storedProcedure);

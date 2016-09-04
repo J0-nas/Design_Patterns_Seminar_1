@@ -1,11 +1,16 @@
+import java.util.ArrayList;
 import java.util.function.Function;
 
-public interface DatabaseConfiguration {
-	DatabaseConfiguration configure(StoredProcedure storedProcedure);
+public abstract class DatabaseConfiguration {
+	protected Function<DatabaseSeperation, Object> byProterty = null;
+	protected ArrayList<Function<DatabaseAction, Object>> andActions = new ArrayList<>();
+	protected StoredProcedure procedure;
 
-	<T> DatabaseConfiguration by(Function<DatabaseSeperation, Object> f);
+	abstract DatabaseConfiguration configure(StoredProcedure storedProcedure);
 
-	<T> DatabaseConfiguration and(Function<DatabaseAction, Object> f);
+	abstract <T> DatabaseConfiguration by(Function<DatabaseSeperation, Object> f);
 
-	void summary();
+	abstract <T> DatabaseConfiguration and(Function<DatabaseAction, Object> f);
+
+	abstract void summary();
 }
