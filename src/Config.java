@@ -1,6 +1,6 @@
 import java.util.function.Function;
 
-public class Config<T> extends DatabaseConfiguration {
+public class Config<T> extends AdjustableConfig {
 
 	public Config<T> configure(StoredProcedure storedProcedure) {
 		System.out.println("Config - Stored: " + storedProcedure);
@@ -10,20 +10,20 @@ public class Config<T> extends DatabaseConfiguration {
 		return this;
 	}
 
-	public <U> Config<T> by(Function<DatabaseSeperation, Object> f) {
+	public <U> Config<T> by(Function<DBSeparator, Object> f) {
 		System.out.println("Config - Setting classifyer..");
-		this.byProterty = f;
+		this.bySeperator = f;
 		return this;
 	}
 
-	public <W> Config<T> and(Function<DatabaseAction, Object> f) {
+	public <W> Config<T> and(Function<DBAction, Object> f) {
 		System.out.println("Config - Adding additional action...");
 		this.andActions.add(f);
 		return this;
 	}
 
 	public void summary() {
-		System.out.println("This config stores: " + procedure.toString() + " - byProperty: " + byProterty.toString()
+		System.out.println("This config stores: " + procedure.toString() + " - byProperty: " + bySeperator.toString()
 				+ " - additional actions: " + andActions);
 	}
 }

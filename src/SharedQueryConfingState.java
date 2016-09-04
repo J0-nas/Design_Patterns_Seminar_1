@@ -1,7 +1,7 @@
 
 public class SharedQueryConfingState {
 	private static SharedQueryConfingState instance;
-	private static DatabaseConfiguration config = null;
+	private static AdjustableConfig config = null;
 
 	private SharedQueryConfingState() {
 
@@ -14,11 +14,11 @@ public class SharedQueryConfingState {
 		return instance;
 	}
 
-	public static void setConfig(DatabaseConfiguration c) {
+	public static void setConfig(AdjustableConfig c) {
 		config = c;
 	}
 
-	public DatabaseConfiguration getCurrentState() {
+	public AdjustableConfig getCurrentState() {
 		return config;
 	}
 }
