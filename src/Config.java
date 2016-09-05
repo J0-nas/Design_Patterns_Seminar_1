@@ -12,7 +12,7 @@ public class Config<T> extends AdjustableConfig {
 
 	public <U> Config<T> by(Function<DBSeparator, Object> f) {
 		System.out.println("Config - Setting classifyer..");
-		this.bySeperator = f;
+		this.bySeperator.add(f);
 		return this;
 	}
 

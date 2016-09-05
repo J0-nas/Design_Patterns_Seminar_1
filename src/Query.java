@@ -9,5 +9,4 @@ public abstract class Query {
 
 		return null;
 	}
-
 }

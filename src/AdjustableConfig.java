@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.function.Function;
 
 public abstract class AdjustableConfig {
-	protected Function<DBSeparator, Object> bySeperator = null;
+	protected ArrayList<Function<DBSeparator, Object>> bySeperator = new ArrayList<>();
 	protected ArrayList<Function<DBAction, Object>> andActions = new ArrayList<>();
 	protected StoredProcedure procedure;
 
